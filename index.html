@@ -9,7 +9,26 @@
 
         <title>テンプレート「線」</title>
     </head>
+<script>
+/**
+ * 表情画像を切り替える関数
+ * @param {string} imgPath - 表示する画像のパス
+ * @param {string} altText - alt属性に設定する説明文
+ */
+function changeFace(imgPath, altText) {
+  const img = document.getElementById('faceImage');
 
+  // フェードアウト
+  img.style.opacity = 0;
+
+  // 少し待ってから画像を切り替え
+  setTimeout(() => {
+    img.src = imgPath;
+    img.alt = altText;
+    img.style.opacity = 1; // フェードイン
+  }, 200);
+}
+</script>
     <body>
         <div>
             <input type="checkbox" id="check-input" />
