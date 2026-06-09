@@ -7,26 +7,19 @@
         <meta name="robots" content="noindex,nofollow,noarchive" />
         <link href="css/style.css" rel="stylesheet" />
 
-        <title>テンプレート「線」</title>
+        <title>すでなま自探索者まとめ</title>
     </head>
 <script>
 /**
- * 表情画像を切り替える関数
- * @param {string} imgPath - 表示する画像のパス
- * @param {string} altText - alt属性に設定する説明文
+ * 表情差分を切り替える（複数キャラ対応）
+ * @param {HTMLElement} btn - 押されたボタン要素
+ * @param {string} imagePath - 切り替える画像パス
  */
-function changeFace(imgPath, altText) {
-  const img = document.getElementById('faceImage');
-
-  // フェードアウト
-  img.style.opacity = 0;
-
-  // 少し待ってから画像を切り替え
-  setTimeout(() => {
-    img.src = imgPath;
-    img.alt = altText;
-    img.style.opacity = 1; // フェードイン
-  }, 200);
+function changeExpression(btn, imagePath) {
+  // ボタンの親要素（div）→ さらに親（.character）→ その中のimgを取得
+  const characterDiv = btn.closest('.character');
+  const img = characterDiv.querySelector('img');
+  img.src = imagePath;
 }
 </script>
     <body>
@@ -35,142 +28,112 @@ function changeFace(imgPath, altText) {
             <label id="check-button" for="check-input"></label>
             <nav>
                 <ul>
-                    <li><a href="#sec1">メニュー１</a></li>
-                    <li><a href="#sec2">メニュー２</a></li>
-                    <li><a href="#sec3">メニュー３</a></li>
-                    <li><a href="#sec4">メニュー４</a></li>
+                    <li><a href="#sec1">About</a></li>
+                    <li><a href="#sec2">鰯と柊</a></li>
+                    <li><a href="#sec3">蹂躙するは我が手にて</a></li>
                 </ul>
             </nav>
         </div>
 
         <main>
             <section id="sec1">
-                <h1 id="title">Site name</h1>
+                <h1 id="title">COC探索者まとめ</h1>
                 <h2>About</h2>
-                <p>すっきり白いテーマです。</p>
+                <p>すでなまの自探索者のまとめです</p>
 
                 <ul id="update">
-                    <li><time>7.19</time>CSS差し替え</li>
-                    <li><time>2025.5.22</time>CSS差し替え</li>
-                    <li><time>9.29</time>CSS差し替え</li>
-                    <li><time>2024.9.21</time>テンプレート公開</li>
+
+                    <li><time>6.21</time>蹂躙するは我が手にて</li>
+                    <li><time>2026.6.6</time>鰯と柊</li>
                 </ul>
             </section>
 
             <section id="sec2">
-                <h2>見出し２</h2>
-                <p>
-                    テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-                </p>
-
-                <h3>見出し３</h3>
-                <p>
-                    テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-                </p>
-
-                <h4>見出し４</h4>
-                <p>
-                    テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-                </p>
-
-                <h5>見出し５</h5>
-                <p>
-                    テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-                </p>
-
-                <h6>見出し６</h6>
-                <p>
-                    テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-                </p>
-
-                <hr />
-                <a href="">リンク</a>
-                <a href="">リンク</a>
-                <a href="">リンク</a>
-                <a><button>ボタン</button></a> <button><a>ボタン</a></button>
-                <p><mark>markで下線を引きます</mark>。</p>
-                <ul>
-                    <li>リスト１</li>
-                    <li>リスト２</li>
-                </ul>
-                <ol>
-                    <li>リスト１</li>
-                    <li>リスト２</li>
-                </ol>
-
-                <dl>
-                    <dt>項目テキスト</dt>
-                    <dd>
-                        項目の説明<br />
-                        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-                    </dd>
-                    <dt>項目</dt>
-                    <dd>項目の説明</dd>
-                </dl>
-            </section>
-
-            <section id="sec3">
-                <h2>グリッド・画像</h2>
-
-                <p>
-                    imgに<mark>class="trim"</mark>を付けると、横いっぱい・縦最大300pxでトリミングして表示します。縦横比に差がある画像向け。
-                </p>
-
-                <div class="grid2">
-                    <p>
-                        グリッド表示1-1。<br /><mark>div class="grid2"</mark
-                        >の中身はグリッド表示（最大二列）になります。
-                    </p>
-                    <p>
-                        グリッド表示1-2。<br />テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-                    </p>
-                    <p>
-                        グリッド表示1-3。<br />テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-                    </p>
-                    <p class="bg-cover" style="background-image: url('./img/thum_ob.jpg')">
-                        <mark>class="bg-cover"</mark>＋画像URLを設定すると、背景いっぱいに画像を表示します。
-                    </p>
-                </div>
-
-                <div class="grid3">
-                    <p>
-                        グリッド表示2-1。<br /><mark>div class="grid3"</mark
-                        >の中身はグリッド表示（最大三列）になります。
-                    </p>
-                    <p>
-                        グリッド表示2-2。<br />テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-                    </p>
-                    <p>
-                        グリッド表示2-3。<br />テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-                    </p>
-
-                    <img class="trim" alt="画像の説明" src="img/thum_ob.jpg" />
-                    <img class="trim" alt="画像の説明" src="img/thum.jpg" />
-                    <img class="trim" alt="画像の説明" src="img/thum_ver.jpg" />
-                </div>
-
-                <div class="img-grid">
-                    <!--画像をぎっしり並べたい場合は親要素にimg-gridクラスを指定してください（小さい画像向け）-->
-                    <img src="img/banner.jpg" />
-                    <img src="img/banner.jpg" />
-                    <img src="img/banner.jpg" />
-                    <img src="img/banner.jpg" />
-                </div>
-
-                <img alt="画像の説明" src="img/thum_ob.jpg" />
-            </section>
-            <section id="sec4">
-            
-<!-- 表情画像 -->
-<img id="faceImage" src="smile.png" alt="笑顔">
-
-<!-- 切り替えボタン -->
-<div>
-  <button onclick="changeFace('smile.png', '笑顔')">笑顔</button>
-  <button onclick="changeFace('angry.png', '怒り顔')">怒り顔</button>
-  <button onclick="changeFace('sad.png', '悲しい顔')">悲しい顔</button>
+                <h2>鰯と柊</h2>
+<div class="grid2">
+<div class="character">
+  <img src="img/肉じゃが/通常/通常.png" alt="彼井るぅ" />
+  <div>
+    <button onclick="changeExpression(this, 'img/肉じゃが/通常/通常.png')">通常</button>
+    <button onclick="changeExpression(this, 'img/肉じゃが/通常/にっこり.png')">笑顔</button>
+    <button onclick="changeExpression(this, 'img/肉じゃが/通常/怒.png')">怒り</button>
+  </div>
 </div>
- </section>
+<p class="bg-cover" style="background-image: url('./img/thum_ob.jpg')">
+名前：肉じゃが<br/>
+年齢：24<br/>
+STR：7　CON：12　POW:9<br/>
+DEX:11　APP:14　SIZ:12<br/>
+INT:9　EDU:10<br/>
+HP:12　MP:9<br/>
+SAN:45　IDE:45<br/>
+幸運:45　知識:50<br/>
+<br/>
+投擲：80　肉切り包丁：80<br/>
+隠す：95　隠れる：90<br/>
+図書館：65<br/>
+
+</p>
+</section>
+</div>
+
+<section id="sec3">
+<h2>蹂躙するは我が手にて</h2>
+<div class="grid2">
+<div class="character">
+  <img src="img/ペトラ/通常.png" alt="ペトラ" />
+  <div>
+    <button onclick="changeExpression(this, 'img/ペトラ/通常.png')">通常</button>
+    <button onclick="changeExpression(this, 'img/ペトラ/にっこり_口開け.png')">笑顔</button>
+    <button onclick="changeExpression(this, 'img/ペトラ/焦り.png')">焦り</button>
+  </div>
+</div>
+<p class="bg-cover" style="background-image: url('./img/thum_ob.jpg')">
+
+名前：ペトラ・ ジーゲルト<br/>
+年齢：30<br/>
+STR：15　CON：14　POW:9<br/>
+DEX:15　APP:12　SIZ:15<br/>
+INT:11　EDU:17<br/>
+HP:15　MP:9<br/>
+SAN:45　IDE:55<br/>
+幸運:45　知識:85<br/>
+<br/>
+回避：80　キック：42<br/>
+こぶし：75　マーシャルアーツ:85<br/>
+ライフル：95　目星：90<br/>
+操縦(航空機)：95　言いくるめ：50<br/>
+</p>
+
+</section>
+
+<!--  
+<section id="sec4">
+<h2>シナリオ名</h2>
+
+<div class="grid2">
+<div class="character">
+  <img src="img/名前/通常.png" alt="名前" />
+  <div>
+    <button onclick="changeExpression(this, 'img/名前/通常.png')">通常</button>
+    <button onclick="changeExpression(this, 'img/名前/通常.png')">通常</button>
+    <button onclick="changeExpression(this, 'img/名前/通常.png')">通常</button>
+  </div>
+</div>
+<p>
+
+名前：<br/>
+年齢：<br/>
+STR：　CON：　POW:<br/>
+DEX:　APP:　SIZ:<br/>
+INT:　EDU:<br/>
+HP:　MP:<br/>
+SAN:　IDE:<br/>
+幸運:　知識:<br/>
+<br/>
+
+</p>
+</section>-->
 
         </main>
 
