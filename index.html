@@ -10,13 +10,8 @@
         <title>すでなま自探索者まとめ</title>
     </head>
 <script>
-/**
- * 表情差分を切り替える（複数キャラ対応）
- * @param {HTMLElement} btn - 押されたボタン要素
- * @param {string} imagePath - 切り替える画像パス
- */
+
 function changeExpression(btn, imagePath) {
-  // ボタンの親要素（div）→ さらに親（.character）→ その中のimgを取得
   const characterDiv = btn.closest('.character');
   const img = characterDiv.querySelector('img');
   img.src = imagePath;
@@ -39,7 +34,7 @@ function changeExpression(btn, imagePath) {
             <section id="sec1">
                 <h1 id="title">COC探索者まとめ</h1>
                 <h2>About</h2>
-                <p>すでなまの自探索者のまとめです</p>
+                <p>すでなまの自探索者と立ち絵のまとめです</p>
 
                 <ul id="update">
 
@@ -108,7 +103,7 @@ SAN:45　IDE:55<br/>
 </section>
 
 <!--  
-<section id="sec4">
+<section id="sec4">←書き換え忘れ注意、だよ。
 <h2>シナリオ名</h2>
 
 <div class="grid2">
@@ -131,7 +126,7 @@ HP:　MP:<br/>
 SAN:　IDE:<br/>
 幸運:　知識:<br/>
 <br/>
-
+技能を書いて、ね。
 </p>
 </section>-->
 
